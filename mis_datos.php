@@ -1,5 +1,9 @@
 <?php
-    require('fpdf.php');
+    // Verificar que la biblioteca FPDF esté disponible
+    if (!file_exists('fpdf.php')) {
+        die('Error: La biblioteca FPDF no está instalada. Por favor, consulte el README.md para instrucciones de instalación.');
+    }
+    require_once('fpdf.php');
     
     $nombres= "David";
     $apellidos = "Ceron Meneses";
@@ -39,5 +43,7 @@
     $pdf->Cell(60, 10, 'No. de control: ' . $no_control, 0, 0);
     $pdf->Cell(0, 10, 'Firma: _________________', 0, 1);
     
-    // Salida del PDF
+    // Salida del PDF con headers apropiados
+    header('Content-Type: application/pdf');
+    header('Content-Disposition: inline; filename="mis_datos.pdf"');
     $pdf->Output('I', 'mis_datos.pdf');
