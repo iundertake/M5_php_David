@@ -1,0 +1,10 @@
+# FPDF library files
+fpdf.php
+fpdf.zip
+font/
+
+# Test files
+test_pdf.php
+
+# Generated PDFs
+*.pdf
